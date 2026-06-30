@@ -34,8 +34,9 @@
     wrapper.classList.toggle("has-img", Boolean(hasSrc) && img.complete && img.naturalWidth > 0);
   }
 
-  function initImages() {
-    const images = document.querySelectorAll("img[data-img]");
+  function initImages(root) {
+    const scope = root || document;
+    const images = scope.querySelectorAll("img[data-img]");
 
     images.forEach(function (img) {
       // Si la imagen falla al cargar, volvemos a mostrar el placeholder.
@@ -66,6 +67,12 @@
       });
       return targets.length;
     },
+    // Vuelve a vincular el control de placeholder a las imágenes nuevas
+    // (por ejemplo, las tarjetas de proyecto creadas dinámicamente).
+    initImages: initImages,
+    // Inicializa el/los carruseles. Se llama desde projects.js una vez
+    // que las tarjetas de proyectos ya están en el DOM.
+    initCarousels: initCarousels,
   };
 
   // Exponer la API en window.
@@ -166,9 +173,11 @@
   }
 
   // Inicialización.
+  // Nota: el carrusel de proyectos NO se inicializa aquí, porque sus
+  // tarjetas se cargan de forma asíncrona desde Firebase. De eso se
+  // encarga js/projects.js llamando a L4F.initCarousels() al terminar.
   document.addEventListener("DOMContentLoaded", function () {
     setCurrentYear();
     initImages();
-    initCarousels();
   });
 })();

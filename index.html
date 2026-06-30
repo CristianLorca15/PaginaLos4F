@@ -153,79 +153,13 @@
           </button>
 
           <div class="carousel__viewport" data-carousel-viewport>
+            <!--
+              Las tarjetas de proyecto se generan dinámicamente desde
+              Firebase (Firestore). Ver js/projects.js. No edites las
+              tarjetas aquí: edita los datos en la base de datos.
+            -->
             <ul class="carousel__track" data-carousel-track>
-              <!-- Proyecto 1: Tu Futuro -->
-              <li class="project-card">
-                <div class="project-card__media">
-                  <img src="https://wzfeipcyrpxctgoekxmy.supabase.co/storage/v1/object/public/Imagenes/educacion-superior.png" alt="Imagen del proyecto Tu Futuro" data-img="project-1" />
-                  <div class="project-card__placeholder">
-                    <svg viewBox="0 0 24 24" width="36" height="36" aria-hidden="true">
-                      <path fill="currentColor" d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2zM8.5 11l2.5 3.01L14.5 9.5l4.5 6H5l3.5-4.5z"/>
-                    </svg>
-                    <span>Imagen del proyecto</span>
-                  </div>
-                </div>
-                <div class="project-card__body">
-                  <span class="badge">Próximamente</span>
-                  <h3 class="project-card__title">Tu Futuro</h3>
-                  <p class="project-card__desc">Este es un proyecto en desarrollo que tiene objetivo ayudar a los jovenes de enseñanza media a encontrar un interes en la educacion superior y que sirva de guia para la toma de decisiones de su futo ayudando a responder todas las dudas que aparescan en el proceso</p>
-                  <p class="project-card__status">En construcción</p>
-                </div>
-              </li>
-
-              <!-- Proyecto 2 -->
-              <li class="project-card">
-                <div class="project-card__media">
-                  <img src="https://wzfeipcyrpxctgoekxmy.supabase.co/storage/v1/object/public/Imagenes/nuam.jpg" alt="Imagen del proyecto 2" data-img="project-2" />
-                  <div class="project-card__placeholder">
-                    <svg viewBox="0 0 24 24" width="36" height="36" aria-hidden="true">
-                      <path fill="currentColor" d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2zM8.5 11l2.5 3.01L14.5 9.5l4.5 6H5l3.5-4.5z"/>
-                    </svg>
-                    <span>Imagen del proyecto</span>
-                  </div>
-                </div>
-                <div class="project-card__body">
-                  <span class="badge">Terminado</span>
-                  <h3 class="project-card__title">Proyecto Nuam</h3>
-                  <p class="project-card__desc">Este proyecto tenia como objetivo la optimización de procesos para el calculo de el valor de la empresas, Para poder intregar estos valores en la bolsa. Creamos una pagina web que ayudaba a los empleados a acceder a la información y poder realizar los cálculos de manera más eficiente.</p>
-                </div>
-              </li>
-
-              <!-- Proyecto 3 -->
-              <li class="project-card">
-                <div class="project-card__media">
-                  <img src="https://wzfeipcyrpxctgoekxmy.supabase.co/storage/v1/object/public/Imagenes/RealidadVirtualFabLab.png" alt="Imagen del proyecto 3" data-img="project-3" />
-                  <div class="project-card__placeholder">
-                    <svg viewBox="0 0 24 24" width="36" height="36" aria-hidden="true">
-                      <path fill="currentColor" d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2zM8.5 11l2.5 3.01L14.5 9.5l4.5 6H5l3.5-4.5z"/>
-                    </svg>
-                    <span>Imagen del proyecto</span>
-                  </div>
-                </div>
-                <div class="project-card__body">
-                  <span class="badge">En Desarrollo</span>
-                  <h3 class="project-card__title">Proyecto Fablap 3D</h3>
-                  <p class="project-card__desc">Recreación tridimensional de un espacio real de nuestro instituto, modelado y desarrollado en Unity como proyecto en equipo.</p>
-                </div>
-              </li>
-
-              <!-- Proyecto 4 -->
-              <li class="project-card">
-                <div class="project-card__media">
-                  <img src="" alt="Imagen del proyecto 4" data-img="project-4" />
-                  <div class="project-card__placeholder">
-                    <svg viewBox="0 0 24 24" width="36" height="36" aria-hidden="true">
-                      <path fill="currentColor" d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2zM8.5 11l2.5 3.01L14.5 9.5l4.5 6H5l3.5-4.5z"/>
-                    </svg>
-                    <span>Imagen del proyecto</span>
-                  </div>
-                </div>
-                <div class="project-card__body">
-                  <span class="badge">Terminado</span>
-                  <h3 class="project-card__title">Proyecto 4</h3>
-                  <p class="project-card__desc">Describe aquí tu cuarto proyecto. Edita este texto para contar de qué trata y qué tecnologías usa.</p>
-                </div>
-              </li>
+              <li class="carousel__state" data-projects-state>Cargando proyectos…</li>
             </ul>
           </div>
 
@@ -296,5 +230,7 @@
   </footer>
 
   <script src="js/main.js" defer></script>
+  <!-- Carga de proyectos desde Firebase (Firestore). Son módulos ES. -->
+  <script type="module" src="js/projects.js"></script>
 </body>
 </html>

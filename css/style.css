@@ -404,6 +404,15 @@ ul {
   padding: 6px;
 }
 
+/* Mensaje de estado (cargando / vacío / error) dentro del carrusel */
+.carousel__state {
+  flex: 1 1 100%;
+  text-align: center;
+  padding: 48px 16px;
+  color: rgba(255, 255, 255, 0.65);
+  font-style: italic;
+}
+
 /* Botones de navegación */
 .carousel__btn {
   flex-shrink: 0;
