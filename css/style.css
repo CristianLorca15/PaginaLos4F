@@ -42,8 +42,7 @@ body {
   background-color: var(--cream);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  /* Espacio para la barra de navegación fija */
-  padding-top: 64px;
+  /* El navbar es transparente y flota sobre el hero, sin empujar el contenido */
 }
 
 img {
@@ -77,10 +76,28 @@ ul {
   left: 0;
   right: 0;
   z-index: 100;
-  height: 64px;
+  height: 78px;
+  /* Totalmente transparente e integrado en la imagen del hero, sin
+     ninguna línea ni banda de color que marque la diferencia. */
+  background: transparent;
+  box-shadow: none;
+  border-bottom: 2px solid transparent;
+  transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Al bajar más allá del hero recupera el fondo sólido para no perder los enlaces */
+.navbar--scrolled {
   background: var(--navy);
   box-shadow: 0 2px 14px rgba(0, 0, 0, 0.22);
-  border-bottom: 2px solid var(--gold);
+  border-bottom-color: var(--gold);
+}
+
+/* Sobre el fondo azul (al bajar) el texto pasa a claro */
+.navbar--scrolled .navbar__brand {
+  color: var(--white);
+}
+.navbar--scrolled .navbar__links a {
+  color: #d7ddec;
 }
 
 .navbar__inner {
@@ -88,24 +105,28 @@ ul {
   align-items: center;
   justify-content: space-between;
   height: 100%;
+  /* Punto intermedio: ni pegado a los bordes ni demasiado centrado */
+  max-width: 1800px;
+  padding-inline: 40px;
 }
 
 .navbar__brand {
   display: flex;
   align-items: center;
   gap: 12px;
-  color: var(--white);
+  color: var(--navy);
   font-family: var(--font-serif);
   font-variant-caps: small-caps;
   font-variant-numeric: lining-nums;
   font-feature-settings: "lnum" 1;
   font-weight: 700;
-  font-size: 1.2rem;
+  font-size: 1.32rem;
   letter-spacing: 0.02em;
+  transition: color 0.3s ease;
 }
 
 .navbar__brand img {
-  height: 40px;
+  height: 48px;
   width: auto;
 }
 
@@ -117,8 +138,8 @@ ul {
 .navbar__links a {
   position: relative;
   padding: 6px 0;
-  color: #d7ddec;
-  font-weight: 500;
+  color: var(--navy);
+  font-weight: 600;
   font-size: 0.92rem;
   transition: color 0.2s ease;
 }
@@ -137,6 +158,9 @@ ul {
 }
 
 .navbar__links a:hover {
+  color: var(--gold);
+}
+.navbar--scrolled .navbar__links a:hover {
   color: var(--white);
 }
 
@@ -148,10 +172,13 @@ ul {
 #equipo,
 #contacto,
 #proyectos {
-  scroll-margin-top: 80px;
+  scroll-margin-top: 94px;
 }
 
 @media (max-width: 560px) {
+  .navbar__inner {
+    padding-inline: 18px;
+  }
   .navbar__brand span {
     display: none;
   }
@@ -168,7 +195,6 @@ ul {
    ============================================================ */
 .hero {
   position: relative;
-  border-top: 3px solid var(--gold);
 }
 
 /* ---- Banner de portada ---- */

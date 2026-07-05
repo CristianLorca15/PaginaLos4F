@@ -172,6 +172,27 @@
     document.querySelectorAll("[data-carousel]").forEach(initCarousel);
   }
 
+  /**
+   * Navbar integrado en el hero: transparente sobre la imagen y con
+   * fondo sólido al bajar más allá de la portada, para que los enlaces
+   * sigan siendo legibles sobre las secciones claras.
+   */
+  function initNavbarScroll() {
+    const navbar = document.querySelector(".navbar");
+    if (!navbar) return;
+
+    // Punto de cambio: cerca del final del banner del hero.
+    const banner = document.querySelector(".hero__banner");
+
+    function onScroll() {
+      const threshold = banner ? banner.offsetHeight - navbar.offsetHeight : 120;
+      navbar.classList.toggle("navbar--scrolled", window.scrollY > threshold);
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
+
   // Inicialización.
   // Nota: el carrusel de proyectos NO se inicializa aquí, porque sus
   // tarjetas se cargan de forma asíncrona desde Firebase. De eso se
@@ -179,5 +200,6 @@
   document.addEventListener("DOMContentLoaded", function () {
     setCurrentYear();
     initImages();
+    initNavbarScroll();
   });
 })();
