@@ -96,7 +96,9 @@ ul {
   gap: 12px;
   color: var(--white);
   font-family: var(--font-serif);
-  font-variant: small-caps;
+  font-variant-caps: small-caps;
+  font-variant-numeric: lining-nums;
+  font-feature-settings: "lnum" 1;
   font-weight: 700;
   font-size: 1.2rem;
   letter-spacing: 0.02em;
