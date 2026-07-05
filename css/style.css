@@ -510,15 +510,17 @@ ul {
    CONTÁCTANOS
    ============================================================ */
 .contact {
-  background: var(--navy);
-  padding: 84px 0;
+  /* Misma zona clara que las tarjetas del equipo, justo debajo con
+     cierta separación (el equipo aporta su padding inferior). */
+  background: transparent;
+  padding: 20px 0 90px;
   text-align: center;
 }
 
 .contact__text {
   max-width: 560px;
   margin: 30px auto 34px;
-  color: #d7ddec;
+  color: var(--text-muted);
   font-size: 1.02rem;
   line-height: 1.6;
 }
